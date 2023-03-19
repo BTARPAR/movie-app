@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import ProgressCircle from './components/Progress';
+import Card from './components/Card';
+import Selector from './components/Selector';
+import SearchCard from './components/SearchCard';
+import SearchBar from './components/SearchBar';
+import Loading from './components/Loading';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProgressCircle />
+
+      <Card />
+
+      <p>Dark</p>
+      <Selector />
+      <p>
+        Light default color is white backgraoud should be dark to use this one
+      </p>
+      <Selector view="light" />
+      <div>Search card</div>
+      <SearchCard />
+      <div style={{ margin: '0 20%' }}>
+        Search Bar
+        <SearchBar />
+      </div>
+      <Loading />
     </div>
   );
-}
+};
 
 export default App;
