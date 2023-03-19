@@ -18,8 +18,6 @@ const SearchResult = () => {
     fetcher
   );
 
-  console.log({ data, error, isLoading });
-
   if (isLoading) {
     return <Loading />;
   }
