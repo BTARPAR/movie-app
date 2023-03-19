@@ -18,7 +18,7 @@ const SearchResult = () => {
     fetcher
   );
 
-  if (isLoading) {
+  if (isLoading || error) {
     return <Loading />;
   }
   const results = data.results.map((item) => (
