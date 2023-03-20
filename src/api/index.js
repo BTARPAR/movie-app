@@ -7,4 +7,8 @@ const fetch = axios.create({
   },
 });
 
-export default fetch;
+const fetcher = (url) => {
+  return fetch.get(url).then((res) => res.data);
+};
+
+export default fetcher;
