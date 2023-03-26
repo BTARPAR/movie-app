@@ -29,8 +29,8 @@ const SearchResult = () => {
           <MovieCard
             id={item.id}
             imgUrl={item.poster_path}
-            name={item.name || item.title || item.original_title}
-            releaseDate={item.first_air_date || item.release_date}
+            name={item.title}
+            releaseDate={item.release_date}
             overview={item.overview}
             key={item.id}
             clickHandler={() => setOwnedMovies(item.id)}
