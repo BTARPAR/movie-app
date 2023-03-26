@@ -7,11 +7,11 @@ import MovieCard from '../../components/SearchCard';
 import SearchBar from '../../components/SearchBar';
 import MessagePlaceholder from '../../components/MessagePlaceholder';
 import { MovieContext } from '../../data-access';
-import useSelectedMovieHook from "../../custom-hooks";
+import useSelectedMovieHook from '../../custom-hooks';
 
 const SearchResult = () => {
   const [query, setQuery] = useState('');
-  const [ownedMovies, setOwnedMovies] = useSelectedMovieHook()
+  const [ownedMovies, setOwnedMovies] = useSelectedMovieHook();
 
   const { data, error, isLoading } = useSWR(
     `/search/movie?query=${query}&page=1`,

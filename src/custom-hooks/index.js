@@ -1,17 +1,17 @@
-import {useState} from "react";
+import { useState } from 'react';
 
 const useSelectedMovieHook = () => {
   const [ownedMovies, setOwnedMovies] = useState({});
 
   const updateMovieList = (id) => {
     if (Object.prototype.hasOwnProperty.call(ownedMovies, id)) {
-      setOwnedMovies({...ownedMovies, [id]:false})
+      setOwnedMovies({ ...ownedMovies, [id]: false });
     } else {
-      setOwnedMovies({...ownedMovies, [id]:true})
+      setOwnedMovies({ ...ownedMovies, [id]: true });
     }
-  }
+  };
 
-  return [ownedMovies, updateMovieList]
-}
+  return [ownedMovies, updateMovieList];
+};
 
-export default useSelectedMovieHook
+export default useSelectedMovieHook;

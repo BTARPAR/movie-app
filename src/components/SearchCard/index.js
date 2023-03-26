@@ -14,8 +14,12 @@ const MovieCard = ({
   const movieList = movieContext();
   const date = releaseDate && releaseDate.split('-');
   const dateString = date.length && `${MONTHS[date[1]]} ${date[2]}, ${date[0]}`;
-  const btnText = Object.prototype.hasOwnProperty.call(movieList, id) ? 'Owned' : 'Owned?';
-  const btnProps = Object.prototype.hasOwnProperty.call(movieList, id) ? { classes: 'primary' } : {};
+  const btnText = Object.prototype.hasOwnProperty.call(movieList, id)
+    ? 'Owned'
+    : 'Owned?';
+  const btnProps = Object.prototype.hasOwnProperty.call(movieList, id)
+    ? { classes: 'primary' }
+    : {};
 
   return (
     <div className="card-wrapper">

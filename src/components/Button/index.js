@@ -2,7 +2,7 @@ import './index.css';
 
 const Button = ({ type, disabled, displayText, classes, clickHandler }) => {
   const className = classes ? `button ${classes}` : 'button';
-  const props = type !== 'submit' ? { onClick:clickHandler} : {}
+  const props = type !== 'submit' ? { onClick: clickHandler } : {};
   return (
     <input
       type={type}
