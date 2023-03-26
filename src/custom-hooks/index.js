@@ -4,10 +4,10 @@ const useSelectedMovieHook = () => {
   const [ownedMovies, setOwnedMovies] = useState({});
 
   const updateMovieList = (id) => {
-    if (Object.prototype.hasOwnProperty.call(ownedMovies, id)) {
-      setOwnedMovies({ ...ownedMovies, [id]: false });
+    if(id === 'reset') {
+      setOwnedMovies({});
     } else {
-      setOwnedMovies({ ...ownedMovies, [id]: true });
+      setOwnedMovies({ ...ownedMovies, [id]: !ownedMovies[id] });
     }
   };
 

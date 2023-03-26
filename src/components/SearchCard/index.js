@@ -1,23 +1,21 @@
 import './index.css';
 import MONTHS from '../../utils';
 import Button from '../Button';
-import { movieContext } from '../../data-access';
 
 const MovieCard = ({
-  id,
   imgUrl,
   name,
   releaseDate,
   overview,
   clickHandler,
+  isSelected
 }) => {
-  const movieList = movieContext();
   const date = releaseDate && releaseDate.split('-');
   const dateString = date.length && `${MONTHS[date[1]]} ${date[2]}, ${date[0]}`;
-  const btnText = Object.prototype.hasOwnProperty.call(movieList, id)
+  const btnText = isSelected
     ? 'Owned'
     : 'Owned?';
-  const btnProps = Object.prototype.hasOwnProperty.call(movieList, id)
+  const btnProps = isSelected
     ? { classes: 'primary' }
     : {};
 

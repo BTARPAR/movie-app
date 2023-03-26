@@ -1,15 +1,15 @@
 import './index.css';
 import useSWR from 'swr';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import fetcher from '../../api';
 import Loading from '../../components/Loading';
 import MovieCard from '../../components/SearchCard';
 import SearchBar from '../../components/SearchBar';
 import MessagePlaceholder from '../../components/MessagePlaceholder';
-import { MovieContext } from '../../data-access';
 import useSelectedMovieHook from '../../custom-hooks';
 
 const SearchResult = () => {
+  // const movieList = movieContext();
   const [query, setQuery] = useState('');
   const [ownedMovies, setOwnedMovies] = useSelectedMovieHook();
 
@@ -17,6 +17,13 @@ const SearchResult = () => {
     `/search/movie?query=${query}&page=1`,
     fetcher
   );
+
+  useEffect(() => {
+    /*
+    * This will reset the state since
+    * */
+    setOwnedMovies('reset')
+  }, [data])
 
   if (isLoading) {
     return <Loading />;
@@ -33,6 +40,7 @@ const SearchResult = () => {
             releaseDate={item.release_date}
             overview={item.overview}
             key={item.id}
+            isSelected = {ownedMovies[item.id] || false}
             clickHandler={() => setOwnedMovies(item.id)}
           />
         ))}
@@ -42,7 +50,6 @@ const SearchResult = () => {
     );
 
   return (
-    <MovieContext.Provider value={ownedMovies}>
       <div className="search-result">
         <div className="search-bar">
           <div className="search-bar-wrapper">
@@ -54,7 +61,6 @@ const SearchResult = () => {
 
         {!!data.total_results && <div>PAGINATION</div>}
       </div>
-    </MovieContext.Provider>
   );
 };
 
