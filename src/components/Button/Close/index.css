@@ -1,0 +1,30 @@
+.close-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.arrow {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+  background: #00c7ec;
+  transition: 0.3s ease-in-out;
+}
+.close-wrapper .arrow .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  border-radius: 1px;
+  background: #ffffff;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.close-wrapper .arrow .line:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.close-wrapper .arrow:hover {
+  transform: rotate(90deg);
+  cursor: pointer;
+}

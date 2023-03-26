@@ -1,4 +1,4 @@
-.wrapper {
+.card-wrapper {
   max-width: calc(100vw - 82px);
   width: 100%;
   height: fit-content;
@@ -7,15 +7,16 @@
   display: flex;
   flex-direction: row;
   border-radius: 5px;
+  overflow: hidden;
 }
 
-.wrapper .image {
+.card-wrapper .image {
   min-width: 94px;
   width: 94px;
   height: 141px;
 }
 
-.wrapper .detail {
+.card-wrapper .detail {
   width: 100%;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -24,31 +25,37 @@
   flex-direction: column;
 }
 
-.wrapper .image img {
+.card-wrapper .owned-button {
+  display: flex;
+  align-items: center;
+  margin-right: 1%;
+}
+
+.card-wrapper .image img {
   width: 100%;
   height: 100%;
 }
 
-.wrapper .detail .title {
+.card-wrapper .detail .title {
   display: flex;
   flex-direction: column;
   text-align: initial;
 }
 
-.wrapper .detail .release_date {
+.card-wrapper .detail .release_date {
   white-space: nowrap;
   color: #999;
 }
 
-.wrapper .detail h4 {
+.card-wrapper .detail h4 {
   margin: 0;
 }
 
-.wrapper .detail .overview {
+.card-wrapper .detail .overview {
   text-align: left;
 }
 
-.wrapper .detail p {
+.card-wrapper .detail p {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;

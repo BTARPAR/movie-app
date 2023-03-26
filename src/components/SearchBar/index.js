@@ -1,5 +1,7 @@
 import './index.css';
 import { useState } from 'react';
+import Button from '../Button';
+import Close from '../Button/Close';
 
 const SearchBar = ({ input, initiateFetch }) => {
   const [search, setSearch] = useState(input);
@@ -9,17 +11,35 @@ const SearchBar = ({ input, initiateFetch }) => {
       <form
         action="/search"
         method="get"
-        onSubmit={() => initiateFetch(search)}
+        onSubmit={(e) => {
+          e.preventDefault();
+          initiateFetch(search);
+        }}
       >
-        <label htmlFor="search">
-          <input
-            type="text"
-            id="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+        <label htmlFor="search" className="search-label">
+          <div className="search-text">
+            <input
+              type="text"
+              id="search"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          {!!search.length && (
+            <Close
+              handleClick={() => {
+                setSearch('');
+              }}
+            />
+          )}
         </label>
-        <input type="submit" value="Search" />
+        <div className="submit">
+          <Button
+            type="submit"
+            disabled={!search.length}
+            displayText="Search"
+          />
+        </div>
       </form>
     </div>
   );

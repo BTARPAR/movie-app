@@ -1,13 +1,24 @@
 import './index.css';
 import MONTHS from '../../utils';
+import Button from '../Button';
+import { movieContext } from '../../data-access';
 
-const SearchCard = ({ imgUrl, name, releaseDate, overview, type }) => {
-  const typeString = type.charAt(0).toUpperCase() + type.slice(1);
+const MovieCard = ({
+  id,
+  imgUrl,
+  name,
+  releaseDate,
+  overview,
+  clickHandler,
+}) => {
+  const movieList = movieContext();
   const date = releaseDate && releaseDate.split('-');
   const dateString = date.length && `${MONTHS[date[1]]} ${date[2]}, ${date[0]}`;
+  const btnText = Object.prototype.hasOwnProperty.call(movieList, id) ? 'Owned' : 'Owned?';
+  const btnProps = Object.prototype.hasOwnProperty.call(movieList, id) ? { classes: 'primary' } : {};
 
   return (
-    <div className="wrapper">
+    <div className="card-wrapper">
       <div className="image">
         <img
           loading="lazy"
@@ -24,15 +35,20 @@ const SearchCard = ({ imgUrl, name, releaseDate, overview, type }) => {
           <h4>{name}</h4>
           {!!dateString && <span className="release_date">{dateString}</span>}
         </div>
-        <div className="type">
-          {type && <span className="release_date">{typeString}</span>}
-        </div>
         <div className="overview">
           <p>{overview || 'No plot found'}</p>
         </div>
+      </div>
+      <div className="owned-button">
+        <Button
+          displayText={btnText}
+          type="button"
+          clickHandler={clickHandler}
+          {...btnProps}
+        />
       </div>
     </div>
   );
 };
 
-export default SearchCard;
+export default MovieCard;

@@ -21,7 +21,7 @@ const Selector = ({
   const clickHandler = (e, index) => {
     e.preventDefault();
     setSelect(index);
-    // onSelection(index.js)
+    // onSelection(index.js.js)
   };
   return (
     <div className="selectors" style={{ ...theme[view] }}>

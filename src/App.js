@@ -2,7 +2,7 @@ import './App.css';
 import ProgressCircle from './components/Progress';
 import Card from './components/Card';
 import Selector from './components/Selector';
-import SearchCard from './components/SearchCard';
+import MovieCard from './components/SearchCard';
 import SearchBar from './components/SearchBar';
 import Loading from './components/Loading';
 
@@ -20,7 +20,7 @@ const App = () => {
       </p>
       <Selector view="light" />
       <div>Search card</div>
-      <SearchCard />
+      <MovieCard />
       <div style={{ margin: '0 20%' }}>
         Search Bar
         <SearchBar />
