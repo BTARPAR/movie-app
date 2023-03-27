@@ -1,7 +1,7 @@
 import './index.css';
 import { useState } from 'react';
 import Button from '../Button';
-import Close from '../Button/Close';
+import Close from '../Close';
 
 const SearchBar = ({ input, initiateFetch }) => {
   const [search, setSearch] = useState(input);

@@ -2,8 +2,8 @@ import './index.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { MONTHS } from '../../utils';
 import Button from '../Button';
-import Check from '../Button/Check';
-import Close from '../Button/Close';
+import Check from '../Check';
+import Close from '../Close';
 
 const MovieCard = ({
   imgUrl,
