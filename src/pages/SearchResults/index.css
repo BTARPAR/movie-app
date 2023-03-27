@@ -27,6 +27,13 @@
   width: 100%;
 }
 
+.search-result .pagination-wrapper {
+  margin: 5rem 0;
+  text-align: center;
+  line-height: 2.5rem;
+;
+}
+
 .search-result .results > * {
   margin-top: 1%;
 }

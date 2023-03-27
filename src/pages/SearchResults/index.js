@@ -95,6 +95,8 @@ const SearchResult = () => {
       )}
 
       {!!data.total_results && (
+        <div className="pagination-wrapper">
+          <div>Total movies found: <b>{data.total_results}</b></div>
         <Pagination
           count={data.total_pages * 2}
           page={page.iterator}
@@ -103,6 +105,7 @@ const SearchResult = () => {
           showFirstButton
           showLastButton
         />
+        </div>
       )}
     </div>
   );
