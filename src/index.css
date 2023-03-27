@@ -4,6 +4,7 @@
   --dark-color: 3, 37, 65, 1;
   --default-anchor-color: 3, 37, 65, 1;
   --selected-tag: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+  font-size: 15px;
 }
 
 body {

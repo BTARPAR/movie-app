@@ -1,6 +1,9 @@
 import './index.css';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import MONTHS from '../../utils';
 import Button from '../Button';
+import Check from '../Button/Check';
+import Close from '../Button/Close';
 
 const MovieCard = ({
   imgUrl,
@@ -8,16 +11,14 @@ const MovieCard = ({
   releaseDate,
   overview,
   clickHandler,
-  isSelected
+  isSelected,
 }) => {
+  const isSmall = useMediaQuery('(max-width: 440px)');
   const date = releaseDate && releaseDate.split('-');
   const dateString = date.length && `${MONTHS[date[1]]} ${date[2]}, ${date[0]}`;
-  const btnText = isSelected
-    ? 'Owned'
-    : 'Owned?';
-  const btnProps = isSelected
-    ? { classes: 'primary' }
-    : {};
+  const btnText = isSelected ? 'Owned' : 'Owned?';
+  const btnProps = isSelected ? { classes: 'primary' } : {};
+  const LoadIcon = isSelected ? Close : Check;
 
   return (
     <div className="card-wrapper">
@@ -41,13 +42,16 @@ const MovieCard = ({
           <p>{overview || 'No plot found'}</p>
         </div>
       </div>
-      <div className="owned-button">
+      <div className="owned-button"
+      style={isSmall ? {marginRight: '3%'}: {}}>
         <Button
           displayText={btnText}
           type="button"
           clickHandler={clickHandler}
           {...btnProps}
-        />
+        >
+          {isSmall && <LoadIcon handleClick={clickHandler} />}
+        </Button>
       </div>
     </div>
   );

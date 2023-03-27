@@ -1,0 +1,22 @@
+.check-wrapper {
+  --length: 20px;
+  border-radius: 15px;
+  background: #00c7ec;
+  width: var(--length);
+  height: var(--length);
+  display: flex;
+  justify-content: center;
+}
+
+.check-wrapper .check {
+  --borderWidth: 3px;
+  --height: 12px;
+  --width: 5px;
+  --borderColor: #ffffff;
+  display: inline-block;
+  transform: rotate(45deg);
+  height: var(--height);
+  width: var(--width);
+  border-bottom: var(--borderWidth) solid var(--borderColor);
+  border-right: var(--borderWidth) solid var(--borderColor);
+}

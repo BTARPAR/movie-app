@@ -20,7 +20,7 @@
 }
 
 .search-result .results {
-  margin-top: 15%;
+  margin-top: 10rem;
   display: flex;
   align-items: center;
   flex-direction: column;
