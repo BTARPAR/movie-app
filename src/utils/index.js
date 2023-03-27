@@ -1,6 +1,6 @@
 // use case is small that's why hard coding this values otherwise we can probably use moment library.
 // importing third party library adds more weight to the bundle.
-const MONTHS = {
+export const MONTHS = {
   '01': 'January',
   '02': 'February',
   '03': 'March',
@@ -14,4 +14,7 @@ const MONTHS = {
   11: 'November',
   12: 'December',
 };
-export default MONTHS;
+
+export const isFloat = (n) => {
+  return Number(n) === n && n % 1 !== 0;
+};

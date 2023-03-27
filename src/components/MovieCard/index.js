@@ -1,6 +1,6 @@
 import './index.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import MONTHS from '../../utils';
+import { MONTHS } from '../../utils';
 import Button from '../Button';
 import Check from '../Button/Check';
 import Close from '../Button/Close';

@@ -8,14 +8,16 @@ import MovieCard from '../../components/MovieCard';
 import SearchBar from '../../components/SearchBar';
 import MessagePlaceholder from '../../components/MessagePlaceholder';
 import useSelectedMovieHook from '../../custom-hooks';
+import { isFloat } from '../../utils';
 
-const DEFAULT_LIMIT = 10;
+const DEFAULT_LOWER_LIMIT = 10;
+const DEFAULT_HIGHER_LIMIT = 20;
 
 const SearchResult = () => {
   const [query, setQuery] = useState('');
   const [page, setPage] = useState({
     no: 1,
-    renderLimit: DEFAULT_LIMIT,
+    renderLimit: DEFAULT_LOWER_LIMIT,
     iterator: 1,
   });
   const [ownedMovies, setOwnedMovies] = useSelectedMovieHook();
@@ -60,14 +62,22 @@ const SearchResult = () => {
     );
 
   const pageHandler = (value) => {
-    return value % 2 === 0
-      ? setPage({ ...page, renderLimit: 20, iterator: page.iterator + 1 })
-      : setPage({
-          ...page,
-          no: page.no + 1,
-          renderLimit: DEFAULT_LIMIT,
-          iterator: page.iterator + 1,
-        });
+    const calculatePageInfo = 0.5 * value;
+
+    if (isFloat(calculatePageInfo)) {
+      return setPage({
+        ...page,
+        renderLimit: DEFAULT_LOWER_LIMIT,
+        iterator: value,
+        no: Math.ceil(calculatePageInfo),
+      });
+    }
+    return setPage({
+      ...page,
+      renderLimit: DEFAULT_HIGHER_LIMIT,
+      iterator: value,
+      no: calculatePageInfo,
+    });
   };
 
   return (
