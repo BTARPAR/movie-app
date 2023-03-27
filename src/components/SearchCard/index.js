@@ -42,8 +42,10 @@ const MovieCard = ({
           <p>{overview || 'No plot found'}</p>
         </div>
       </div>
-      <div className="owned-button"
-      style={isSmall ? {marginRight: '3%'}: {}}>
+      <div
+        className="owned-button"
+        style={isSmall ? { marginRight: '3%' } : {}}
+      >
         <Button
           displayText={btnText}
           type="button"
