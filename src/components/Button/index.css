@@ -19,13 +19,13 @@
   font-weight: bold;
 }
 
-.button:hover {
+.button:not([disabled]):hover {
   color: white;
   background-color: #00c7ec;
   cursor: pointer;
 }
 
-.button:active {
+.button:active  {
   transform: scale(0.98);
   box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 }
