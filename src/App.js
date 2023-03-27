@@ -2,7 +2,7 @@ import './App.css';
 import ProgressCircle from './components/Progress';
 import Card from './components/Card';
 import Selector from './components/Selector';
-import MovieCard from './components/SearchCard';
+import MovieCard from './components/MovieCard';
 import SearchBar from './components/SearchBar';
 import Loading from './components/Loading';
 

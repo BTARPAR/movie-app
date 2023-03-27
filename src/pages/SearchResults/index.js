@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Pagination from '@mui/material/Pagination';
 import fetcher from '../../api';
 import Loading from '../../components/Loading';
-import MovieCard from '../../components/SearchCard';
+import MovieCard from '../../components/MovieCard';
 import SearchBar from '../../components/SearchBar';
 import MessagePlaceholder from '../../components/MessagePlaceholder';
 import useSelectedMovieHook from '../../custom-hooks';
